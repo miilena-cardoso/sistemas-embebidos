@@ -1,0 +1,82 @@
+/* Ej. MI-15: Se realiza una inspección en una fábrica de pinturas, y se detectaron 20 (tres) infracciones. De cada infracción se tomó nota de los siguientes datos:
+- Tipo de Infracción (1, 2, 3, ó 4)     
+- Motivo de la infracción
+- Valor de la multa
+- Gravedad de la infracción (‘L’,‘M’, ‘G’)
+Se pide informar al final del proceso:
+ Los valores totales de la multa a pagar de acuerdo al tipo de gravedad.
+ La leyenda “Clausurar fábrica” si la cantidad de infracciones 3 y 4 con gravedad “G” sean
+mayor a 3.*/
+#include <stdio.h>
+
+void main(void) 
+{
+    int multa, totalL = 0, totalM = 0, totalG = 0;
+    int infraccion = 0, tipo;
+    char gravedad;
+
+    for (int i = 0; i < 3}5; i++)
+    {
+        printf("\nIngrese los datos de la infracción %d:\n", i + 1);
+
+        do 
+        {
+            printf("Tipo de infracción (1-4): ");
+            scanf("%d", &tipo);
+            if (tipo < 1 || tipo > 4) 
+            {
+                printf("la infraccion debe ser entre 1 y 4.\n");
+            }
+        } while (tipo < 1 || tipo > 4);
+
+        do 
+        {
+            printf("Valor de la multa): ");
+            scanf("%d", &multa);
+            if (multa <= 0) 
+            {
+                printf("el valor de la multa debe ser un numero positivo.\n");
+            }
+            
+        } while (multa <= 0);
+
+        do 
+        {
+            printf("Gravedad de la infracción (L, M, G): ");
+            scanf(" %c", &gravedad); 
+            
+            if (gravedad != 'L' && gravedad != 'l' && gravedad != 'M' && gravedad != 'm' && gravedad != 'G' && gravedad != 'g') 
+            {
+                printf("la gravedad debe ser: L, M o G.\n");
+            }
+            
+        } while (gravedad != 'L' && gravedad != 'l' && gravedad != 'M' && gravedad != 'm' && gravedad != 'G' && gravedad != 'g');
+
+        if (gravedad == 'L' || gravedad == 'l') 
+        {
+            totalL += multa;
+        }
+        else if (gravedad == 'M' || gravedad == 'm') 
+        {
+            totalM += multa;
+        } 
+        else if (gravedad == 'G' || gravedad == 'g') 
+        {
+            totalG += multa;
+
+            if (tipo == 3 || tipo == 4) 
+            {
+                infraccion++;
+            }
+        }
+    }
+    
+    printf("\nTotal de multas con gravedad 'L': %d\n", totalL);
+    printf("Total de multas con gravedad 'M': %d\n", totalM);
+    printf("Total de multas con gravedad 'G': %d\n", totalG);
+
+    if (infraccion > 3) 
+    {
+        printf("\nClausurar fábrica :(\n");
+    }
+}

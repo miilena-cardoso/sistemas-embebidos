@@ -1,0 +1,19 @@
+// Dados dos valores enteros A y B, informar la suma, la resta y el producto.
+#include <stdio.h>
+
+int suma, producto, resta, numA, numB;
+
+void main (void)
+{
+    printf("por favor ingrese dos números enteros.");
+    printf("\ningrese el numero 1:");
+    scanf("%d",&numA);
+    printf("\ningrese el numero 2:");
+    scanf("%d",&numB);
+    suma=numA+numB;
+    producto=numA*numB;
+    resta=numA-numB;
+    
+    printf("\nla suma de ambos productos es:%d, el producto %d y la resta %d",suma,producto,resta);
+
+}
